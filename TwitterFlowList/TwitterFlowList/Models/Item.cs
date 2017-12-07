@@ -22,13 +22,13 @@ namespace TwitterFlowList
         {
             get { return _Color; }
             set { _Color =  value; }
-        }
+        }        
 
-        public String _MyColor = "#ff40ff";
-        public String MyColor
+        public bool _IsSelected = false;
+        public bool IsSelected
         {
-            get { return _MyColor; }
-            set { SetProperty(ref _MyColor, value); }
+            get { return _IsSelected; }
+            set { SetProperty(ref _IsSelected, value); }
         }
 
         protected bool SetProperty<T>(ref T backingStore, T value,

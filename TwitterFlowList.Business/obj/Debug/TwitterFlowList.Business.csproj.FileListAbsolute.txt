@@ -1,0 +1,16 @@
+E:\W\Work-2017\Upwork-Johnny\src\TwitterFlowList\TwitterFlowList.Business\bin\Debug\TwitterFlowList.Business.dll
+E:\W\Work-2017\Upwork-Johnny\src\TwitterFlowList\TwitterFlowList.Business\bin\Debug\TwitterFlowList.Business.pdb
+E:\W\Work-2017\Upwork-Johnny\src\TwitterFlowList\TwitterFlowList.Business\bin\Debug\DLToolkit.Forms.Controls.FlowListView.dll
+E:\W\Work-2017\Upwork-Johnny\src\TwitterFlowList\TwitterFlowList.Business\bin\Debug\Xamarin.Forms.Core.dll
+E:\W\Work-2017\Upwork-Johnny\src\TwitterFlowList\TwitterFlowList.Business\bin\Debug\Xamarin.Forms.Platform.dll
+E:\W\Work-2017\Upwork-Johnny\src\TwitterFlowList\TwitterFlowList.Business\bin\Debug\Xamarin.Forms.Xaml.dll
+E:\W\Work-2017\Upwork-Johnny\src\TwitterFlowList\TwitterFlowList.Business\bin\Debug\DLToolkit.Forms.Controls.FlowListView.xml
+E:\W\Work-2017\Upwork-Johnny\src\TwitterFlowList\TwitterFlowList.Business\bin\Debug\Xamarin.Forms.Core.pdb
+E:\W\Work-2017\Upwork-Johnny\src\TwitterFlowList\TwitterFlowList.Business\bin\Debug\Xamarin.Forms.Core.xml
+E:\W\Work-2017\Upwork-Johnny\src\TwitterFlowList\TwitterFlowList.Business\bin\Debug\Xamarin.Forms.Platform.pdb
+E:\W\Work-2017\Upwork-Johnny\src\TwitterFlowList\TwitterFlowList.Business\bin\Debug\Xamarin.Forms.Xaml.pdb
+E:\W\Work-2017\Upwork-Johnny\src\TwitterFlowList\TwitterFlowList.Business\bin\Debug\Xamarin.Forms.Xaml.xml
+E:\W\Work-2017\Upwork-Johnny\src\TwitterFlowList\TwitterFlowList.Business\obj\Debug\TwitterFlowList.Business.csprojResolveAssemblyReference.cache
+E:\W\Work-2017\Upwork-Johnny\src\TwitterFlowList\TwitterFlowList.Business\obj\Debug\TwitterFlowList.Business.csproj.CoreCompileInputs.cache
+E:\W\Work-2017\Upwork-Johnny\src\TwitterFlowList\TwitterFlowList.Business\obj\Debug\TwitterFlowList.Business.dll
+E:\W\Work-2017\Upwork-Johnny\src\TwitterFlowList\TwitterFlowList.Business\obj\Debug\TwitterFlowList.Business.pdb

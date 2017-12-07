@@ -18,19 +18,7 @@ namespace TwitterFlowList
             DLToolkit.Forms.Controls.FlowListView.Init();
             BindingContext = viewModel = new ItemsViewModel();
         }
-
-        async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
-        {
-            var item = args.SelectedItem as Item;
-            if (item == null)
-                return;
-            item.Color = Color.Red;            
-            ///await Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(item)));
-
-            // Manually deselect item
-            //ItemsListView.SelectedItem = null;
-        }
-
+        
         async void AddItem_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new NewItemPage());
@@ -83,13 +71,30 @@ namespace TwitterFlowList
             AddCategory.CommandParameter = entercategory.Text;
             viewModel.IsVisible = viewModel.ItemsOnPage.Count > 0 ? false : true;
         }
-        
+
+        CurvedCornersLabel labelSender;
         void OnTapGestureRecognizerTapped(object sender, EventArgs args)
-        {            
-            var labelSender = (CurvedCornersLabel)sender;
-            // watch the monkey go from color to black&white!
-            labelSender.CurvedBackgroundColor = Color.Red;
-            labelSender.BackgroundColor = Color.Red;
+        {
+            //labelSender = (CurvedCornersLabel)sender;            
+            //labelSender.BackgroundColor = (labelSender.BackgroundColor== Color.FromHex(App.Default_Color))?Color.White: Color.FromHex(App.Default_Color);
+            //labelSender.TextColor = (labelSender.BackgroundColor == Color.FromHex(App.Default_Color)) ? Color.White : Color.FromHex(App.Default_Color);
+
+            var frameSender = (Frame)sender;
+            frameSender.BackgroundColor = (frameSender.BackgroundColor == Color.FromHex(App.Default_Color)) ? Color.White : Color.FromHex(App.Default_Color);
+            if(frameSender.FindByName<CurvedCornersLabel>("lblText")!=null)
+            {
+                labelSender = frameSender.FindByName<CurvedCornersLabel>("lblText");
+                    frameSender.FindByName<CurvedCornersLabel>("lblText").TextColor = (frameSender.BackgroundColor == Color.FromHex(App.Default_Color)) ? Color.White : Color.FromHex(App.Default_Color);
+            }
+                
+            if (frameSender.Parent.GetType() != null)
+                Console.Write(frameSender.Parent.GetType().ToString());
         }
+
+        private void flowListView_FlowItemTapped(object sender, ItemTappedEventArgs e)
+        {            
+            (e.Item as Item).IsSelected = !(e.Item as Item).IsSelected;
+            labelSender.Text = (e.Item as Item).IsSelected.ToString();
+        }        
     }
 }

@@ -65,26 +65,36 @@
                               FlowRowBackgroundColor="White" 
                               FlowColumnExpand="ProportionalLast" 
                               SeparatorVisibility="Default" 
-                              HasUnevenRows="False"	                                    
+                              HasUnevenRows="False"
                               FlowItemsSource="{Binding ItemsOnPage}"
                               SeparatorColor="White"                              
-                              >
+                              FlowItemTapped="flowListView_FlowItemTapped" >
                 <flv:FlowListView.FlowColumnTemplate>
                     <DataTemplate>
-                        <local:CurvedCornersLabel
-	                      Text="{Binding Text}"
+                        <Frame CornerRadius="20"  
+       OutlineColor="{Binding Color}" 
+       Padding="10">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnTapGestureRecognizerTapped"></TapGestureRecognizer>
+                            </Frame.GestureRecognizers>
+                            <StackLayout>
+                                <local:CurvedCornersLabel
+	                      Text="{Binding Text}" x:Name="lblText"
 	                      HorizontalTextAlignment="Center"
 	                      VerticalTextAlignment="Center"
 	                      FontSize="14.5"                                            
                             HorizontalOptions="FillAndExpand"
-	                      HeightRequest="30"                            
-	                      CurvedBackgroundColor="{Binding Color}"
-	                      TextColor="#fff"
-	                      CurvedCornerRadius="15">
-                            <local:CurvedCornersLabel.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="OnTapGestureRecognizerTapped"/>
-                            </local:CurvedCornersLabel.GestureRecognizers>
-                        </local:CurvedCornersLabel>
+	                      HeightRequest="30"
+                                    CurvedBackgroundColor="Transparent"
+	                      TextColor="{Binding Color}"
+	                      >
+                                    <!--<local:CurvedCornersLabel.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnTapGestureRecognizerTapped"/>
+                                    </local:CurvedCornersLabel.GestureRecognizers>-->
+                                </local:CurvedCornersLabel>
+                            </StackLayout>
+                        </Frame>
+
                     </DataTemplate>
                 </flv:FlowListView.FlowColumnTemplate>
             </flv:FlowListView>
