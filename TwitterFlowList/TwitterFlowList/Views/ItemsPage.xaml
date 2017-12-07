@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TwitterFlowList.ItemsPage"
+             xmlns:colorConvert="clr-namespace:TwitterFlowList;assembly=TwitterFlowList"
               Title="{Binding Title}"
                           xmlns:xf="clr-namespace:TwitterFlowList;assembly=TwitterFlowList.Business"
              xmlns:local="clr-namespace:TwitterFlowList;assembly=TwitterFlowList.Business"
@@ -10,6 +11,12 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add" Clicked="AddItem_Clicked" />
     </ContentPage.ToolbarItems>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <xf:StringToColorConverter x:Key="StringToColorConverter">
+            </xf:StringToColorConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <!---->
         <!--<StackLayout>
@@ -53,28 +60,30 @@
                 <Entry TextChanged="entercategory_TextChanged" x:Name="entercategory" Placeholder="Add your unique interests"  TextColor="Blue"></Entry>
                 <Button Text="Add" IsVisible="{Binding IsVisible}" x:Name="AddCategory" Command="{Binding AddItemsCommand}"></Button>
             </StackLayout>
-            <flv:FlowListView Grid.Row="1" 
+            <flv:FlowListView IsVisible="True" Grid.Row="1" x:Name="flowListView"
                               FlowColumnCount="2" 
                               FlowRowBackgroundColor="White" 
                               FlowColumnExpand="ProportionalLast" 
                               SeparatorVisibility="Default" 
-                              HasUnevenRows="False"	
-	                          FlowItemsSource="{Binding ItemsOnPage}" 
-                              SeparatorColor="White" >
+                              HasUnevenRows="False"	                                    
+                              FlowItemsSource="{Binding ItemsOnPage}"
+                              SeparatorColor="White"                              
+                              >
                 <flv:FlowListView.FlowColumnTemplate>
                     <DataTemplate>
-                        <!--<Label HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand"  TextColor="White"
-				XAlign="Center" YAlign="Center" Text="{Binding Text}"/>-->
                         <local:CurvedCornersLabel
 	                      Text="{Binding Text}"
 	                      HorizontalTextAlignment="Center"
 	                      VerticalTextAlignment="Center"
-	                      FontSize="14.5"                            
+	                      FontSize="14.5"                                            
                             HorizontalOptions="FillAndExpand"
 	                      HeightRequest="30"                            
 	                      CurvedBackgroundColor="{Binding Color}"
 	                      TextColor="#fff"
 	                      CurvedCornerRadius="15">
+                            <local:CurvedCornersLabel.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnTapGestureRecognizerTapped"/>
+                            </local:CurvedCornersLabel.GestureRecognizers>
                         </local:CurvedCornersLabel>
                     </DataTemplate>
                 </flv:FlowListView.FlowColumnTemplate>

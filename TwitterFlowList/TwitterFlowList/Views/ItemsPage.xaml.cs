@@ -10,10 +10,12 @@ namespace TwitterFlowList
     public partial class ItemsPage : ContentPage
     {
         ItemsViewModel viewModel;
+
+        TapGestureRecognizer tapGestureRecognizer = new TapGestureRecognizer();        
         public ItemsPage()
         {
             InitializeComponent();
-
+            DLToolkit.Forms.Controls.FlowListView.Init();
             BindingContext = viewModel = new ItemsViewModel();
         }
 
@@ -22,8 +24,8 @@ namespace TwitterFlowList
             var item = args.SelectedItem as Item;
             if (item == null)
                 return;
-
-            await Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(item)));
+            item.Color = Color.Red;            
+            ///await Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(item)));
 
             // Manually deselect item
             //ItemsListView.SelectedItem = null;
@@ -73,13 +75,21 @@ namespace TwitterFlowList
         {
             if (!string.IsNullOrEmpty(entercategory.Text))
             {
-                viewModel.ItemsOnPage = new ObservableCollection<Item>(viewModel.Items.Where<Item>(x => x.Text.ToLower().Contains(entercategory.Text.ToLower()) == true).ToList());                
-            }                
+                viewModel.ItemsOnPage = new TrulyObservableCollection<Item>(viewModel.Items.Where<Item>(x => x.Text.ToLower().Contains(entercategory.Text.ToLower()) == true).ToList());
+            }
             else
                 viewModel.ItemsOnPage = viewModel.Items;
 
             AddCategory.CommandParameter = entercategory.Text;
             viewModel.IsVisible = viewModel.ItemsOnPage.Count > 0 ? false : true;
+        }
+        
+        void OnTapGestureRecognizerTapped(object sender, EventArgs args)
+        {            
+            var labelSender = (CurvedCornersLabel)sender;
+            // watch the monkey go from color to black&white!
+            labelSender.CurvedBackgroundColor = Color.Red;
+            labelSender.BackgroundColor = Color.Red;
         }
     }
 }

@@ -124,7 +124,12 @@
       <InProject>false</InProject>
     </ImageAsset>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\TwitterFlowList.Business\TwitterFlowList.Business.csproj">
+      <Project>{14f664c1-9ce0-4d7c-86de-a6187cfddcd5}</Project>
+      <Name>TwitterFlowList.Business</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
   </ItemGroup>
@@ -134,6 +139,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CurvedCornersLabelRenderer.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
   </ItemGroup>

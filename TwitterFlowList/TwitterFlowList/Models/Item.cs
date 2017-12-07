@@ -10,11 +10,25 @@ namespace TwitterFlowList
         public string Id { get; set; }
         public string Text { get; set; }
         public string Description { get; set; }
+        //public Color _Color = Color.FromHex("#0040ff");
+        //public Color Color
+        //{
+        //    get { return _Color; }
+        //    set { SetProperty(ref _Color, value); }            
+        //}
+
         public Color _Color = Color.FromHex("#0040ff");
         public Color Color
         {
             get { return _Color; }
-            set { SetProperty(ref _Color, value); }            
+            set { _Color =  value; }
+        }
+
+        public String _MyColor = "#ff40ff";
+        public String MyColor
+        {
+            get { return _MyColor; }
+            set { SetProperty(ref _MyColor, value); }
         }
 
         protected bool SetProperty<T>(ref T backingStore, T value,
